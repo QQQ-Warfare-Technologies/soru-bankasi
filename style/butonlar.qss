@@ -1,0 +1,193 @@
+/* === GENEL BUTON AYARLARI (Geniş Tıklama Alanı ve Net Sınırlar) === */
+QPushButton {
+    background-color: #f8f9fa; /* Saf beyaz yerine hafif gri, buton hissini artırır */
+    border: 2px solid #ced4da; /* Kalın ve belirgin kenarlık */
+    border-radius: 6px;
+    padding: 8px 16px; /* Tıklama alanı büyütüldü */
+    font-size: 15px; /* Yazılar büyütüldü */
+    font-weight: 600; /* Daha kalın ve okunaklı yazılar */
+    color: #212529; /* Siyaha yakın çok koyu antrasit */
+}
+
+QPushButton:hover {
+    background-color: #e2e6ea;
+    border-color: #adb5bd;
+}
+
+QPushButton:pressed {
+    background-color: #dae0e5;
+    border-color: #6c757d;
+}
+
+/* ==========================================
+   LİSTE İÇİ İŞLEM BUTONLARI (Vurgulu ve Canlı)
+   ========================================== */
+
+/* --- DÜZENLE BUTONU (Klasik Canlı Mavi) --- */
+QPushButton#btn_soru_duzenle {
+    background-color: #007bff;
+    color: #ffffff;
+    border: 2px solid #0056b3;
+}
+QPushButton#btn_soru_duzenle:hover {
+    background-color: #0069d9;
+    border-color: #004a99;
+}
+QPushButton#btn_soru_duzenle:pressed {
+    background-color: #0062cc;
+}
+
+/* --- KOPYALA BUTONU (Koyu Antrasit/Gri) --- */
+QPushButton#btn_soru_kopyala {
+    background-color: #6c757d;
+    color: #ffffff;
+    border: 2px solid #495057;
+}
+QPushButton#btn_soru_kopyala:hover {
+    background-color: #5a6268;
+    border-color: #343a40;
+}
+QPushButton#btn_soru_kopyala:pressed {
+    background-color: #545b62;
+}
+
+/* --- SİL BUTONU (Evrensel Uyarı Kırmızısı) --- */
+QPushButton#btn_soru_sil {
+    background-color: #dc3545;
+    color: #ffffff;
+    border: 2px solid #b02a37;
+}
+QPushButton#btn_soru_sil:hover {
+    background-color: #c82333;
+    border-color: #a52834;
+}
+QPushButton#btn_soru_sil:pressed {
+    background-color: #bd2130;
+}
+
+QPushButton#btn_sinav_hazirla {
+    background-color: #17a2b8;
+    color: #ffffff;
+    border: 2px solid #0f6674;
+}
+QPushButton#btn_sinav_hazirla:hover {
+    background-color: #138496;
+    border-color: #0c5c6d;
+}
+QPushButton#btn_sinav_hazirla:pressed {
+    background-color: #117a8b;
+}
+
+QPushButton#btn_word_olustur {
+    background-color: #2b579a; /* Word mavisi */
+    color: #ffffff;
+    border: 2px solid #1b365d;
+}
+QPushButton#btn_word_olustur:hover {
+    background-color: #1e4e79;
+    border-color: #16335b;
+}
+QPushButton#btn_word_olustur:pressed {
+    background-color: #1b365d;
+}
+
+/* ==========================================
+   ANA AKSİYON BUTONLARI
+   ========================================== */
+
+/* --- EKLE / YENİ / KAYDET (Güven Veren Net Yeşil) --- */
+QPushButton#btn_yeni_ders,
+QPushButton#btn_yeni_konu,
+QPushButton#btn_yeni_soru,
+QPushButton#btn_kaydet,
+QPushButton#btn_ekle,
+QPushButton#btn_ekle_sinava {
+    background-color: #28a745; 
+    color: #ffffff;
+    border: 2px solid #1e7e34;
+    min-height: 15px; /* Diğer butonlardan biraz daha büyük yapıldı */
+    
+
+}
+QPushButton#btn_yeni_ders:hover,
+QPushButton#btn_yeni_konu:hover,
+QPushButton#btn_yeni_soru:hover,
+QPushButton#btn_kaydet:hover,
+QPushButton#btn_ekle:hover,
+QPushButton#btn_ekle_sinava:hover {
+    background-color: #218838;
+    border-color: #1c7430;
+}
+QPushButton#btn_yeni_ders:pressed,
+QPushButton#btn_yeni_konu:pressed,
+QPushButton#btn_yeni_soru:pressed,
+QPushButton#btn_kaydet:pressed,
+QPushButton#btn_ekle:pressed,
+QPushButton#btn_ekle_sinava:pressed {
+    background-color: #1e7e34;
+}
+
+/* --- ÇIKAR BUTONU (Dikkat Çekici Canlı Turuncu) --- */
+QPushButton#btn_cikar {
+    background-color: #fd7e14;
+    color: #ffffff;
+    border: 2px solid #e85e0c;
+    min-height: 15px;
+
+}
+QPushButton#btn_cikar:hover {
+    background-color: #e85e0c;
+    border-color: #d35400;
+}
+QPushButton#btn_cikar:pressed {
+    background-color: #d35400;
+}
+
+/* --- BİRİNCİL AKSİYON: SINAVI KAYDET (Derin Lacivert) --- */
+QPushButton#primaryButton,
+QPushButton#btn_sorulari_kaydet {
+    background-color: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #00c6ff, stop:1 #0072ff); /* Degrade mavi */
+    color: #ffffff;
+    border: 2px solid #0056b3;
+    
+}
+QPushButton#primaryButton:hover,
+QPushButton#btn_sorulari_kaydet:hover {
+    background-color: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #0072ff, stop:1 #0056b3);
+    border-color: #003366;
+    
+}
+QPushButton#primaryButton:pressed,
+QPushButton#btn_sorulari_kaydet:pressed {
+    background-color: #003366;
+    border-color: #002752;
+}
+
+QPushButton#btn_sinav_sil {
+    background-color: #dc3545;
+    color: #ffffff;
+    border: 2px solid #b02a37;
+}
+
+QPushButton#btn_sinav_sil:hover {
+    background-color: #c82333;
+    border-color: #a52834;
+}
+
+QPushButton#btn_sinav_sil:pressed {
+    background-color: #bd2130;
+}
+
+QPushButton#btn_sinav_arti {
+    background-color: #28a745;
+    color: #ffffff;
+    border: 2px solid #1e7e34;
+    font-size: 24px; /* Artı işareti için daha büyük font */
+}
+QPushButton#btn_sinav_arti:hover {
+    background-color: #218838;
+    border-color: #1c7430;
+}
+QPushButton#btn_sinav_arti:pressed {
+    background-color: #1e7e34;
+}

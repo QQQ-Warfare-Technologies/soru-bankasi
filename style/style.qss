@@ -1,0 +1,286 @@
+/* === GENEL === */
+QMainWindow {
+    background-color: #f5f7fa;
+}
+
+/* Tüm widget'lar için ortak font ayarı */
+QWidget {
+    font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+    font-size: 16px;
+    color: #2f2f2f;
+}
+
+QFrame, QGroupBox {
+    border: none;
+}
+
+
+
+/* === INPUT ALANLARI === */
+QLineEdit, QPlainTextEdit, QComboBox {
+    background-color: #ffffff;
+    border: 1px solid #cfd6df;
+    border-radius: 4px;
+    padding: 6px;
+    font-size: 16px;
+    selection-background-color: #d6e9ff;
+    selection-color: #1f3b5c;
+}
+
+QLineEdit:focus,
+QTextEdit:focus,
+QPlainTextEdit:focus,
+QComboBox:focus {
+    border: 2px solid #4a90e2;
+}
+
+/* ComboBox dropdown */
+QComboBox::drop-down {
+    border: none;
+    padding-right: 8px;
+}
+
+QComboBox QAbstractItemView {
+    background-color: #ffffff;
+    border: 1px solid #cfd6df;
+    selection-background-color: #dceeff;
+    selection-color: #1f3b5c;
+}
+
+/* === TABLO === */
+QTableWidget {
+    background-color: #ffffff;
+    border: 1px solid #dde3ea;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+QHeaderView::section {
+    background-color: #eef2f6;
+    padding: 6px;
+    border: none; /* Qt'nin varsayılan kenarlıklarını sıfırlar */
+    border-right: 1px solid #cfd6df; /* Sütunlar arası dikey ayırıcı */
+    border-bottom: 2px solid #8e9bb0; /* Başlığı veriden ayıran daha belirgin alt çizgi */
+    font-size: 16px;
+    font-weight: 600;
+    color: #4a4a4a;
+}
+
+/* En sağdaki sütunun dışarıda kalan çizgisini temizlemek için ince ayar */
+QHeaderView::section:last {
+    border-right: none;
+}
+
+/* Tablo Seçim */
+QTableWidget::item:selected {
+    background-color: #cfe6ff;
+    color: #1f3b5c;
+}
+
+/* === TREE === */
+QTreeWidget {
+    background-color: #ffffff;
+    border: 1px solid #dde3ea;
+    border-radius: 6px;
+    font-size: 16px;
+    outline: none;
+}
+
+/* Tree item */
+QTreeWidget::item {
+    padding: 6px 8px;
+    outline: none;
+    border: none;
+}
+
+/* Hover */
+QTreeWidget::item:hover {
+    background-color: #edf4ff;
+}
+
+/* Focus durumunda kesik çizgiyi kaldır */
+QTreeWidget::item:focus {
+    outline: none;
+    border: none;
+}
+
+/* Seçili Tree Item */
+QTreeWidget::item:selected {
+    background-color: #dceeff;
+    color: #1f3b5c;
+    outline: none;
+    border: none;
+}
+
+/* Odak kaybolunca */
+QTreeWidget::item:selected:!active {
+    background-color: #e6f2ff;
+    color: #1f3b5c;
+}
+
+/* === LABEL === */
+QLabel {
+    font-size: 16px;
+    color: #2f2f2f;
+}
+
+/* === SCROLLBAR === */
+QScrollBar:vertical {
+    background: #f0f3f7;
+    width: 10px;
+    border-radius: 5px;
+}
+
+QScrollBar::handle:vertical {
+    background: #c1d4eb;
+    border-radius: 5px;
+    min-height: 20px;
+}
+
+QScrollBar::handle:vertical:hover {
+    background: #a9c4e6;
+}
+
+QScrollBar::add-line:vertical,
+QScrollBar::sub-line:vertical {
+    height: 0px;
+}
+
+QScrollBar:horizontal {
+    background: #f0f3f7;
+    height: 10px;
+    border-radius: 5px;
+}
+
+QScrollBar::handle:horizontal {
+    background: #c1d4eb;
+    border-radius: 5px;
+    min-width: 20px;
+}
+
+QScrollBar::handle:horizontal:hover {
+    background: #a9c4e6;
+}
+
+QScrollBar::add-line:horizontal,
+QScrollBar::sub-line:horizontal {
+    width: 0px;
+}
+
+/* === TOOLTIP === */
+QToolTip {
+    background-color: #2f2f2f;
+    color: #ffffff;
+    border: none;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+/* === MESSAGE BOX === */
+QMessageBox {
+    background-color: #ffffff;
+}
+
+QMessageBox QLabel {
+    font-size: 16px;
+}
+
+QMessageBox QPushButton {
+    min-width: 70px;
+}
+
+/* ============================================
+   DİALOG PENCERELERİ (Ders, Konu, Soru Ekleme)
+   ============================================ */
+
+QDialog {
+    background-color: #f5f7fa;
+}
+
+/* Dialog başlığı stilleri */
+QDialog QLabel {
+    font-size: 16px;
+    color: #2f2f2f;
+    padding: 2px 0px;
+}
+QLabel#lbl_resim_onizleme {
+    border: 2px dashed #aaa;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    color: #777;
+    padding: 10px;
+}
+
+QLabel#lbl_resim_sinav {
+    border: 2px dashed #aaa;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    color: #777;
+    padding: 10px;
+}
+
+QLabel#lbl_resim_onizleme_main {
+    border: 2px dashed #aaa;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    color: #777;
+    padding: 10px;
+}
+
+
+QDialog QLineEdit:focus,
+QDialog QTextEdit:focus,
+QDialog QPlainTextEdit:focus {
+    border: 2px solid #4a90e2;
+}
+
+/* Dialog içindeki ComboBox */
+QDialog QComboBox {
+    background-color: #ffffff;
+    border: 1px solid #cfd6df;
+    border-radius: 4px;
+    padding: 8px;
+    font-size: 14px;
+    min-height: 20px;
+}
+
+QDialog QComboBox:focus {
+    border: 2px solid #4a90e2;
+}
+
+QDialog QComboBox::drop-down {
+    border: none;
+    padding-right: 10px;
+}
+
+QDialog QComboBox QAbstractItemView {
+    background-color: #ffffff;
+    border: 1px solid #cfd6df;
+    selection-background-color: #dceeff;
+    selection-color: #1f3b5c;
+    padding: 4px;
+}
+
+/* Dialog içindeki TreeWidget (Soru ekleme - konu seçimi) */
+QDialog QTreeWidget {
+    background-color: #ffffff;
+    border: 1px solid #dde3ea;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+QDialog QTreeWidget::item {
+    padding: 4px 6px;
+}
+
+QDialog QTreeWidget::item:hover {
+    background-color: #edf4ff;
+}
+
+QDialog QTreeWidget::item:selected {
+    background-color: #dceeff;
+    color: #1f3b5c;
+}
+
+
