@@ -45,7 +45,6 @@ class ManageExamsDialog(QDialog):
         self.ui.btn_word_olustur.clicked.connect(self.word_dosyasi_olustur)
         self.ui.btn_sinav_sil.clicked.connect(self.sinav_sil)
 
-        
         self.ui.table_exam_questions.setColumnCount(2)
         self.ui.table_exam_questions.setHorizontalHeaderLabels(
             ["ID", "Soru Metni"])
@@ -314,6 +313,8 @@ class ManageExamsDialog(QDialog):
                 else:
                     self.onizlenen_resim_yolu = None
                     self.ui.lbl_resim_sinav.setText("⚠️ Görsel dosyası kayıp!")
+            else:
+                self.onizlenen_resim_yolu = None
 
     def sinava_soru_ekle(self):
         """Seçili soruyu/soruları havuzdan alıp Sınav Soruları tablosuna kopyalar."""
@@ -446,6 +447,7 @@ class ManageExamsDialog(QDialog):
         img_html = ""
 
         if self.onizlenen_resim_yolu:
+            print(self.onizlenen_resim_yolu)
             # Resmi belleğe yazıp Base64 formatına kodluyoruz
             orijinal_pixmap = QPixmap(self.onizlenen_resim_yolu)
 
@@ -500,7 +502,6 @@ class ManageExamsDialog(QDialog):
         clipboard.setMimeData(mime_data)
 
         # Kontrol için konsola yazdır
-      
 
     def word_dosyasi_olustur(self):
         """ComboBox'ta seçili sınava ait tüm soruları veritabanından çeker ve Word belgesi üretir."""
@@ -636,43 +637,46 @@ class ManageExamsDialog(QDialog):
 
     def sinav_sil(self):
         """Seçili sınavı kullanıcı onayıyla siler ve arayüzü günceller."""
-        
+
         # 1. ComboBox'tan ID'yi al
         sinav_id = self.ui.cb_sinavlar.currentData()
         sinav_adi = self.ui.cb_sinavlar.currentText()
 
         # Eğer geçerli bir seçim yoksa (None ise) işlemi durdur
         if sinav_id is None:
-            QMessageBox.warning(self, "Uyarı", "Lütfen silmek istediğiniz sınavı seçin.")
+            QMessageBox.warning(
+                self, "Uyarı", "Lütfen silmek istediğiniz sınavı seçin.")
             return
 
         # 2. Türkçe Butonlu Onay Penceresi
         onay_box = QMessageBox(self)
         onay_box.setWindowTitle("Sınavı Sil")
-        onay_box.setText(f"'{sinav_adi}' isimli sınavı silmek istediğinize emin misiniz?\n\nBu işlem geri alınamaz.")
+        onay_box.setText(
+            f"'{sinav_adi}' isimli sınavı silmek istediğinize emin misiniz?\n\nBu işlem geri alınamaz.")
         onay_box.setIcon(QMessageBox.Icon.Question)
-        
+
         evet_btn = onay_box.addButton("Evet", QMessageBox.ButtonRole.YesRole)
         hayir_btn = onay_box.addButton("Hayır", QMessageBox.ButtonRole.NoRole)
         onay_box.setDefaultButton(hayir_btn)
-        
+
         onay_box.exec()
 
         if onay_box.clickedButton() != evet_btn:
-            return # Kullanıcı Hayır dedi
+            return  # Kullanıcı Hayır dedi
 
         # 3. Veritabanından Silme İşlemini Başlat
         basarili = self.db.sinav_veritabanindan_sil(sinav_id)
 
         if basarili:
-            QMessageBox.information(self, "Başarılı", f"'{sinav_adi}' sınavı başarıyla silindi.")
-            
+            QMessageBox.information(
+                self, "Başarılı", f"'{sinav_adi}' sınavı başarıyla silindi.")
+
             # 4. ARAYÜZÜ GÜNCELLE (Kritik Adım)
             # Sınavlar listesini (ComboBox) yeniden yükle ki silinen sınav gitsin
-            self.sinavlari_comboboxa_yukle() 
-            
+            self.sinavlari_comboboxa_yukle()
+
             # Eğer sağ tarafta o sınava ait sorular listeleniyorsa tabloyu da temizle
             self.ui.table_exam_questions.setRowCount(0)
         else:
-            QMessageBox.critical(self, "Hata", "Sınav silinirken teknik bir sorun oluştu.")
-
+            QMessageBox.critical(
+                self, "Hata", "Sınav silinirken teknik bir sorun oluştu.")
